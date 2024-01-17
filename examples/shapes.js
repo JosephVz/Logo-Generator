@@ -37,7 +37,7 @@ class Polygon extends Shapes {
     renderPolygon() {
 
         return `<svg version="1.1" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
-        <polyogon height="100%" width="100%" points="0,200 300,200 150,0" fill="${this.shapeColor}"/>
+        <polygon height="100%" width="100%" points="0,200 300,200 150,0" fill="${this.shapeColor}"/>
         ${super.setText()}
         </svg>`
     }
@@ -52,7 +52,7 @@ class Square extends Shapes {
     renderSquare() {
 
         return `<svg version="1.1" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
-        <polygon height="100%" width="100%" points="0,200 300,200 150,0" fill="${this.shapeColor}"/>
+        <rect height="100%" width="100%" points="0,200 300,200 150,0" fill="${this.shapeColor}"/>
         ${super.setText()}
         </svg>`
     }

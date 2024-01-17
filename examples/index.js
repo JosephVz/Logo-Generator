@@ -10,7 +10,7 @@ const init = () => {
 
     switch (`${answers.shape}`) {
         case "Square":
-            // const square = new Square(data.text, data.textColor data.shapeColor)
+            const square = new Square(answers.text, answers.textColor, answers.shapeColor)
             fs.writeFile("./logo.svg", square.renderSquare(), (err) => {
                 if (err) {
                     console.error(err);
@@ -25,17 +25,17 @@ const init = () => {
                 if (err) {
                     console.error(err);
                 } else {
-                    console.log("Square is made.")
+                    console.log("Circle is made.")
                 }
             });
             break;
         case "Triangle":
-            // const polygon = new Polygon(data.text, data.textColor data.shapeColor)
-            fs.writeFile("./logo.svg", polyogn.renderPolygon(), (err) => {
+            const polygon = new Polygon(answers.text, answers.textColor, answers.shapeColor)
+            fs.writeFile("./logo.svg", polygon.renderPolygon(), (err) => {
                 if (err) {
                     console.error(err);
                 } else {
-                    console.log("Square is made.")
+                    console.log("Triangle is made.")
                 }
             });
             break;
