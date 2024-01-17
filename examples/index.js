@@ -1,9 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-// const Triangle = require('./triangle.svg');
-// const Circle = require('./circle.svg');
-// const Square = require('./square.svg');
+const {Circle, Square, Polygon} = require("./shapes.js");
 
 function prompt() {
     inquirer
@@ -31,20 +29,40 @@ function prompt() {
     },
 ])
 
-.then((answers) => {
-    makeLogo(answers);
-    const shapeType = answers.shapeType;
+.then((data) => {
 
-    let shape;
-    if (shapeType === "Triangle") {
-        shape = new Triangle();
-    } else if (shapeType === "Circle") {
-        shape = new Circle();
-    } else if (shapeType === "Square") {
-        shape = new Square();
-    }
+    switch (`${data.shapeType}`) {
+        case "Square":
+            const square = new Square(data.text, data.textColor data.shapeColor)
+            fs.writeFile("./logo.svg", square.renderSquare(), (err) => {
+                if (err) {
+                    console.error(err);
+                } else {
+                    console.log("Square is made.")
+                }
+            });
+            break;
+        case "Square":
+            const square = new Square(data.text, data.textColor data.shapeColor)
+            fs.writeFile("./logo.svg", square.renderSquare(), (err) => {
+                if (err) {
+                    console.error(err);
+                } else {
+                    console.log("Square is made.")
+                }
+            });
+            break;
+        case "Square":
+            const square = new Square(data.text, data.textColor data.shapeColor)
+            fs.writeFile("./logo.svg", square.renderSquare(), (err) => {
+                if (err) {
+                    console.error(err);
+                } else {
+                    console.log("Square is made.")
+                }
+            });
+            break;
 
-    shape.draw();
 })
 .catch((error) => {
     console.log("An error occurred.", error);
@@ -52,14 +70,10 @@ function prompt() {
 }
 
 
-function makeLogo(answers) {
-
-    const { text, textColor, shapeType, shapeColor} = answers;
-
-    const svgContent = `<svg width="300" height="200">
-    <rect width="300" height="200" fill="${shapeColor}" />
-    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-size="48" fill="${textColor}">${text}</text>
-  </svg>`;
+//     const svgContent = `<svg width="300" height="200">
+//     <rect width="300" height="200" fill="${shapeColor}" />
+//     <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-size="48" fill="${textColor}">${text}</text>
+//   </svg>`;
 
 fs.writeFile("logo.svg", svgContent,(error) => {
     if (error) {
