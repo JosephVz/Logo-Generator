@@ -15,7 +15,7 @@ setText() {
 
 class Circle extends Shapes {
 
-    constructor() {
+    constructor(text, textColor, shapeColor) {
         super(text, textColor, shapeColor)
     }
 
@@ -30,7 +30,7 @@ class Circle extends Shapes {
 
 class Polygon extends Shapes {
 
-    constructor() {
+    constructor(text, textColor, shapeColor) {
         super(text, textColor, shapeColor)
     }
 
@@ -45,7 +45,7 @@ class Polygon extends Shapes {
 
 class Square extends Shapes {
 
-    constructor() {
+    constructor(text, textColor, shapeColor) {
         super(text, textColor, shapeColor)
     }
 
