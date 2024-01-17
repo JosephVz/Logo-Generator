@@ -1,30 +1,29 @@
-const {Circle, Square, Triangle} = require("./shapes.js");
+const {Shapes, Circle, Square, Polygon} = require("./shapes.js");
 
-
+    describe('Shapes', () => {
+        test('should set text properly', () => {
+            const shape = new Shapes('Hello');
+            expect(shape.text).toBe('Hello')
+        });
+    });
     
     describe("Circle", () => {
-        it("should return back green circle", () => {
-            const shape = new Circle();
-            var color = ("green");
-            shape.setColor(color);
-            expect(shape.render()).toEqual(`green`);
+        test("should return green circle", () => {
+            const shape = new Circle('green');
+            expect(shape.shapeColor).toBe('green');
         });
     });
     
     describe("Square", () => {
-        it("should return back green square", () => {
-            const shape = new Square();
-            var color = ("green");
-            shape.setColor(color);
-            expect(shape.render()).toEqual(`green`);
+        test("should return back green square", () => {
+            const shape = new Square('green');
+            expect(shape.shapeColor).toBe('green');
         });
     });
 
     describe("Triangle", () => {
-        it("should return back green triangle", () => {
-            const shape = new Triangle();
-            var color = ("green");
-            shape.setColor(color);
-            expect(shape.render()).toEqual(`green`);
+        test("should return back green triangle", () => {
+            const shape = new Polygon('green');
+            expect(shape.shapeColor).toBe('green');
         });
     });
