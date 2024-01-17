@@ -1,8 +1,33 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const questions = require('./questions')
 
-const {Circle, Square, Polygon} = require("./shapes.js");
+const {Circle, Square, Polygon} = require("./lib/shapes.js");
+
+const questions = [
+    {
+        type: "input",
+        message: "What is the text for your logo? (Enter 3 characters).",
+        name: "text",
+    },
+    {
+        type: "input",
+        message: "What is the color of the text? (Can enter hexadecimal number).",
+        name: "textColor",
+    },
+    {
+        type: "list",
+        message: "Select a shape.",
+        name: "shape",
+        choices: ["Circle", "Triangle", "Square"],
+    },
+    {
+        type: "input",
+        message: "What is the color of the shape? (Can enter hexadecimal number).",
+        name: "shapeColor",
+    },
+];
+
+module.exports = questions
 
 const init = () => {
     inquirer.prompt(questions)
@@ -11,7 +36,7 @@ const init = () => {
     switch (`${answers.shape}`) {
         case "Square":
             const square = new Square(answers.text, answers.textColor, answers.shapeColor)
-            fs.writeFile("./logo.svg", square.renderSquare(), (err) => {
+            fs.writeFile("examples/logo.svg", square.renderSquare(), (err) => {
                 if (err) {
                     console.error(err);
                 } else {
@@ -21,7 +46,7 @@ const init = () => {
             break;
         case "Circle":
             const circle = new Circle(answers.text, answers.textColor, answers.shapeColor)
-            fs.writeFile("./logo.svg", circle.renderCircle(), (err) => {
+            fs.writeFile("examples/logo.svg", circle.renderCircle(), (err) => {
                 if (err) {
                     console.error(err);
                 } else {
@@ -31,7 +56,7 @@ const init = () => {
             break;
         case "Triangle":
             const polygon = new Polygon(answers.text, answers.textColor, answers.shapeColor)
-            fs.writeFile("./logo.svg", polygon.renderPolygon(), (err) => {
+            fs.writeFile("examples/logo.svg", polygon.renderPolygon(), (err) => {
                 if (err) {
                     console.error(err);
                 } else {
